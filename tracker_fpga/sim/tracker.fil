@@ -1,0 +1,12 @@
+# command file for simulating nailbot Verilog
+tracker_tb.v
+# simply point to relevant directories
+# assume filename is module name
++libext+.v
++libdir+.
++libdir+..\src
++incdir+..\src
++libdir+..\..\lib_common\src
+#+libdir+..\..\lib_common\sim
+# Altera library file
+#-v C:\intelFPGA_lite\16.1\quartus\eda\sim_lib\altera_mf.v

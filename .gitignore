@@ -1,0 +1,6 @@
+*.vcd
+*.vobj
+*/synth/db/*
+*/synth/incremental_db/*
+*/synth/output_files/*
+*.qws

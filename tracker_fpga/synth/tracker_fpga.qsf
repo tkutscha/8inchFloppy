@@ -1,0 +1,115 @@
+# -------------------------------------------------------------------------- #
+#
+# Copyright (C) 2016  Intel Corporation. All rights reserved.
+# Your use of Intel Corporation's design tools, logic functions 
+# and other software and tools, and its AMPP partner logic 
+# functions, and any output files from any of the foregoing 
+# (including device programming or simulation files), and any 
+# associated documentation or information are expressly subject 
+# to the terms and conditions of the Intel Program License 
+# Subscription Agreement, the Intel Quartus Prime License Agreement,
+# the Intel MegaCore Function License Agreement, or other 
+# applicable license agreement, including, without limitation, 
+# that your use is for the sole purpose of programming logic 
+# devices manufactured by Intel and sold by Intel or its 
+# authorized distributors.  Please refer to the applicable 
+# agreement for further details.
+#
+# -------------------------------------------------------------------------- #
+#
+# Quartus Prime
+# Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
+# Date created = 08:36:13  January 05, 2017
+#
+# -------------------------------------------------------------------------- #
+#
+# Notes:
+#
+# 1) The default values for assignments are stored in the file:
+#		tracker_fpga_assignment_defaults.qdf
+#    If this file doesn't exist, see file:
+#		assignment_defaults.qdf
+#
+# 2) Altera recommends that you do not modify this file. This
+#    file is updated automatically by the Quartus Prime software
+#    and any changes you make may be lost or overwritten.
+#
+# -------------------------------------------------------------------------- #
+
+
+set_global_assignment -name FAMILY "MAX 10"
+set_global_assignment -name DEVICE 10M04SAE144C8G
+set_global_assignment -name TOP_LEVEL_ENTITY tracker_fpga
+set_global_assignment -name ORIGINAL_QUARTUS_VERSION 16.1.0
+set_global_assignment -name PROJECT_CREATION_TIME_DATE "08:36:13  JANUARY 05, 2017"
+set_global_assignment -name LAST_QUARTUS_VERSION "16.1.0 Lite Edition"
+set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
+set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
+set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
+set_global_assignment -name DEVICE_FILTER_PIN_COUNT 144
+set_global_assignment -name ERROR_CHECK_FREQUENCY_DIVISOR 2
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_global_assignment -name DEVICE_FILTER_SPEED_GRADE 8
+set_global_assignment -name ENABLE_OCT_DONE OFF
+set_global_assignment -name ENABLE_CONFIGURATION_PINS ON
+set_global_assignment -name ENABLE_BOOT_SEL_PIN OFF
+set_global_assignment -name STRATIXV_CONFIGURATION_SCHEME "PASSIVE SERIAL"
+set_global_assignment -name USE_CONFIGURATION_DEVICE OFF
+set_global_assignment -name GENERATE_RBF_FILE ON
+set_global_assignment -name CRC_ERROR_OPEN_DRAIN ON
+set_global_assignment -name RESERVE_DATA1_AFTER_CONFIGURATION "USE AS REGULAR IO"
+set_global_assignment -name RESERVE_FLASH_NCE_AFTER_CONFIGURATION "USE AS REGULAR IO"
+set_global_assignment -name OUTPUT_IO_TIMING_NEAR_END_VMEAS "HALF VCCIO" -rise
+set_global_assignment -name OUTPUT_IO_TIMING_NEAR_END_VMEAS "HALF VCCIO" -fall
+set_global_assignment -name OUTPUT_IO_TIMING_FAR_END_VMEAS "HALF SIGNAL SWING" -rise
+set_global_assignment -name OUTPUT_IO_TIMING_FAR_END_VMEAS "HALF SIGNAL SWING" -fall
+set_global_assignment -name EXTERNAL_FLASH_FALLBACK_ADDRESS 00000000
+set_global_assignment -name INTERNAL_FLASH_UPDATE_MODE "SINGLE COMP IMAGE"
+set_global_assignment -name NUM_PARALLEL_PROCESSORS 4
+
+# suppress input pins not driving logic warning
+set_global_assignment -name MESSAGE_DISABLE 21074
+# suppress LogicLock warning
+set_global_assignment -name MESSAGE_DISABLE 292013
+# suppress Incomplete IO warning
+set_global_assignment -name MESSAGE_DISABLE 15714
+# suppress differential I/O pin warnings
+set_global_assignment -name MESSAGE_DISABLE 176674
+# suppress reltative toggle rates warning
+set_global_assignment -name MESSAGE_DISABLE 222013
+# suppress no board thermal model warning
+set_global_assignment -name MESSAGE_DISABLE 215044
+# suppress output pins stuck at VCC or GND
+set_global_assignment -name MESSAGE_DISABLE 13024
+# suppress Intel FPGA LVTTL pad requirements
+set_global_assignment -name MESSAGE_DISABLE 169177
+# suppress Relative toggle rates
+set_global_assignment -name MESSAGE_DISABLE 222019
+# suppress PowerPlay Power Analyzer
+set_global_assignment -name MESSAGE_DISABLE 16562
+# suppress LVDS_E_3R performance warning
+set_global_assignment -name MESSAGE_DISABLE 14579
+# suppress Inconsistent VCCIO across configuration pins
+set_global_assignment -name MESSAGE_DISABLE 169202
+
+set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
+set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
+set_global_assignment -name FLOW_ENABLE_POWER_ANALYZER ON
+set_global_assignment -name POWER_DEFAULT_INPUT_IO_TOGGLE_RATE "12.5 %"
+set_global_assignment -name DEVICE_FILTER_PACKAGE "ANY QFP"
+
+set_location_assignment PIN_26 -to clk
+set_location_assignment PIN_17 -to clk_en_1
+set_location_assignment PIN_88 -to step
+set_location_assignment PIN_89 -to dir
+set_location_assignment PIN_90 -to drivenum
+set_location_assignment PIN_91 -to zero_track
+set_location_assignment PIN_98 -to lower_track
+
+set_global_assignment -name STRATIX_DEVICE_IO_STANDARD "3.3-V LVCMOS"
+set_global_assignment -name FORCE_CONFIGURATION_VCCIO OFF
+set_global_assignment -name VERILOG_FILE ../../lib_common/src/syncflops.v
+set_global_assignment -name VERILOG_FILE ../src/tracker_fpga.v
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
